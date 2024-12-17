@@ -23,3 +23,14 @@ The findings will offer insights into the suitability of various models for this
 ## 6. Experimental Results  
 
 ## 7. Conclusion   
+## 8. Citations
+- **Dataset**:
+  ```
+  @misc{breast_cancer_wisconsin_(prognostic)_16,
+    author       = {Wolberg, William, Street, W., and Mangasarian, Olvi},
+    title        = {{Breast Cancer Wisconsin (Prognostic)}},
+    year         = {1995},
+    howpublished = {UCI Machine Learning Repository},
+    note         = {{DOI}: https://doi.org/10.24432/C5GK50}
+  }
+  ```
