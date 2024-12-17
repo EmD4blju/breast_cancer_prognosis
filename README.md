@@ -13,6 +13,8 @@ The findings will offer insights into the suitability of various models for this
 
 ## 2. Dataset Description  
 - **Dataset**: [Breast Cancer Wisconsin (Prognostic)](https://archive.ics.uci.edu/dataset/16/breast+cancer+wisconsin+prognostic).  
+Dataset consists of 35 columns, where first row is a unique patient ID, second row is an outcome (a label) and the rest are features. There are 198 samples of examined patients for training / testing the models.
+More information can be found in the [notebook](jupyter_notebook/data_notebook.ipynb).
 
 ## 3. Methodology and Solution   
 
