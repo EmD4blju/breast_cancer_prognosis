@@ -12,5 +12,17 @@ def replace_nan(dataframe:pd.DataFrame, to_replace:str, value, columns:list) -> 
 def separate(dataframe:pd.DataFrame, id_label:str, outcome_label:str, feature_start_label:int, after:bool) -> tuple:
     pass
 
+def reduce(dataframe:pd.DataFrame) -> pd.DataFrame:
+    pass
+
+def reduce_multiple(dataframe:pd.DataFrame) -> tuple:
+    pass
+
 def prepare_wbpc(dataframe:pd.DataFrame) -> pd.DataFrame:
+    pass
+
+def merge_dataframes(dataframes:list):
+    pass
+
+def save_as_csv(dataframe:pd.DataFrame):
     pass
