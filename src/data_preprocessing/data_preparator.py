@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sklearn.preprocessing as spp
 import sklearn.manifold as smf
-import os
+
 
 def load(path:str, delimiter:str) -> pd.DataFrame:
     wpbc_dataframe = pd.read_csv(
@@ -14,17 +14,14 @@ def load(path:str, delimiter:str) -> pd.DataFrame:
     )
     return wpbc_dataframe
 
-def save_as_csv(dataframe:pd.DataFrame, file_path:str) -> None:
-    if not os.path.exists(file_path):
-        dataframe.to_csv(
-            path_or_buf=file_path,
-            sep=','
-        )
-    else:
-        dataframe.to_csv(
-            path_or_buf=file_path+'_1',
-            sep=','
-        )
+def save_as_csv(dataframe:pd.DataFrame, file_path:str, sep:str) -> None:
+    dataframe.to_csv(
+        path_or_buf=file_path,
+        sep=sep,
+        columns=dataframe.columns,
+        header=True,
+        index=False
+    )
 
 def encode(dataframe:pd.DataFrame, columns_to_encode:list) -> pd.DataFrame:
     encoder=spp.LabelEncoder()

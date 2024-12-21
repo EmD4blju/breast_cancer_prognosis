@@ -70,11 +70,9 @@ if __name__ == "__main__":
         dataframe.iloc[:,2:] = normalized_features
     i = 0
     for dataframe in dataframes_to_save:
-        dataframe.to_csv(
-            path_or_buf='dataset/wpbc' + str(i) + '.csv',
-            sep=',',
-            columns=dataframe.columns,
-            header=True,
-            index=False
+        dp.save_as_csv(
+            dataframe=dataframe,
+            file_path='dataset/wpbc' + str(i) + '.csv',
+            sep=','
         )
         i += 1
