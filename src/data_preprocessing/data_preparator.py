@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sklearn.preprocessing as spp
 import sklearn.manifold as smf
+import os
 
 def load(path:str, delimiter:str) -> pd.DataFrame:
     wpbc_dataframe = pd.read_csv(
@@ -13,21 +14,30 @@ def load(path:str, delimiter:str) -> pd.DataFrame:
     )
     return wpbc_dataframe
 
-def save_as_csv(dataframe:pd.DataFrame) -> None:
-    pass
+def save_as_csv(dataframe:pd.DataFrame, file_path:str) -> None:
+    if not os.path.exists(file_path):
+        dataframe.to_csv(
+            path_or_buf=file_path,
+            sep=','
+        )
+    else:
+        dataframe.to_csv(
+            path_or_buf=file_path+'_1',
+            sep=','
+        )
 
 def encode(dataframe:pd.DataFrame, columns_to_encode:list) -> pd.DataFrame:
-    encoder = spp.LabelEncoder()
-    encoded_dataframe = dataframe
+    encoder=spp.LabelEncoder()
+    encoded_dataframe=dataframe
     for column in columns_to_encode:
-        encoded_dataframe[column] = encoder.fit_transform(
-            y = encoded_dataframe[column]
+        encoded_dataframe[column]=encoder.fit_transform(
+            y=encoded_dataframe[column]
         )
     return encoded_dataframe
 
 def replace_nan(dataframe:pd.DataFrame, to_replace:str, value) -> pd.DataFrame:
     replaced_dataframe = dataframe
-    replaced_dataframe.replace(
+    replaced_dataframe = replaced_dataframe.replace(
         to_replace=to_replace,
         value=value
     )
@@ -48,7 +58,7 @@ def reduce(features:pd.DataFrame, n_components:int) -> pd.DataFrame:
     reduced_features = tsne.fit_transform(
         X=features
     )
-    return reduced_features
+    return pd.DataFrame(reduced_features)
 
 def merge_dataframes(dataframe_1:pd.DataFrame, dataframe_2:pd.DataFrame) -> pd.DataFrame:
     return pd.merge(
@@ -58,11 +68,12 @@ def merge_dataframes(dataframe_1:pd.DataFrame, dataframe_2:pd.DataFrame) -> pd.D
         right_index=True
     )
 
-def normalize(dataframe:pd.DataFrame) -> pd.DataFrame:
+def normalize(features:pd.DataFrame) -> pd.DataFrame:
     """use spp.MinMaxScaler to normalize features to a 0-1 format"""
-    pass
-
-def prepare_wbpc(dataframe:pd.DataFrame) -> pd.DataFrame:
-    pass
+    scaler = spp.MinMaxScaler(feature_range=(0,1))
+    scaled_dataframe = scaler.fit_transform(
+        X=features
+    )
+    return pd.DataFrame(scaled_dataframe)
 
 
