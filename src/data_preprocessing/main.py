@@ -1,5 +1,10 @@
 import data_preparator as dp
 import numpy as np
+
+
+"""main.py contains just a code to automate creation of different wpbc datasets such as (reduced, normalized, etc.). This code is not valid in this project.
+"""
+
 if __name__ == "__main__":
     wpbc_dataframe = dp.load(
         path='dataset/wpbc.csv',
