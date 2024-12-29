@@ -101,7 +101,6 @@ While F1-score is the primary focus, the following metrics were also evaluated t
 - **Accuracy**: The ratio of correctly predicted instances to the total number of instances.  
 - **Precision**: The proportion of true positive predictions among all positive predictions.  
 - **Recall (Sensitivity)**: The proportion of true positives identified out of all actual positive cases.  
-- **Area Under the Curve (AUC)**: Evaluates the ability of the model to distinguish between classes at various threshold settings, especially useful for binary classification problems.
 
 ---
 
